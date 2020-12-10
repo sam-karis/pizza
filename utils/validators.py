@@ -30,6 +30,7 @@ def validate_order(func):
                 else:
                     res["invalidPizza"].append(pizza_name)
             topping_list = pizza_list[-1].split(",")
+            topping_list = list(filter(lambda x: x != "", topping_list))
             for topping in topping_list:
                 topping = topping.strip(" ").capitalize()
                 if topping not in available_topping:

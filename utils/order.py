@@ -18,6 +18,7 @@ def record_order(order_data):
         pizza_obj = pizza_query.filter(SizeReference.name == pizza_size).first()
         new_user_request = UserRequest(pizza_id=pizza_obj.id)
         topping_list = request_list[-1].split(",") if len(request_list) > 1 else []
+        topping_list = list(filter(lambda x: x != "", topping_list))
         for topping in topping_list:
             topping_name = topping.strip(" ").capitalize()
             topping_obj = topping_query.filter(ToppingReference.name == topping_name).filter(
