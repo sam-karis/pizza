@@ -24,11 +24,14 @@ def create_app(config=None):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # # ensure the instance folder exists
+    # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    # add models to apply changes
+    from models import pizza
 
     # Register blueprints
     app.register_blueprint(index.bp, url_prefix="/api")
