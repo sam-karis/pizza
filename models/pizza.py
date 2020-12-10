@@ -14,6 +14,7 @@ class SizeReference(BaseModel, db.Model):
         "ToppingTypeSize", backref="size_ref", lazy=True, uselist=False
     )
 
+
 class Pizza(BaseModel, db.Model):
     __tablename__ = "pizza"
 
@@ -21,6 +22,9 @@ class Pizza(BaseModel, db.Model):
     price = db.Column(db.Integer)
     size_id = db.Column(
         db.Integer, db.ForeignKey("size_reference.id"), nullable=False
+    )
+    user_requests = db.relationship(
+        "UserRequest", backref="pizza", lazy=True, uselist=False
     )
 
     @property

@@ -11,7 +11,7 @@ load_dotenv("dev.env")
 db = SQLAlchemy()
 migrate = Migrate()
 
-from api import index
+from api import index, order
 
 
 def create_app(config=None):
@@ -32,8 +32,10 @@ def create_app(config=None):
 
     # add models to apply changes
     from models import pizza
+    from models import order as order_model
 
     # Register blueprints
     app.register_blueprint(index.bp, url_prefix="/api")
+    app.register_blueprint(order.bp, url_prefix="/api")
 
     return app

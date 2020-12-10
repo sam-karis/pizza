@@ -10,7 +10,10 @@ from models.pizza import SizeReference, Pizza, ToppingType, ToppingTypeSize, Top
 
 @app.before_first_request
 def before_first_request_func():
-    # This function will run once
+    """
+    This function will run once when the api is started
+    :return:
+    """
     db.session.add(SizeReference(name='Large'))
     db.session.add(SizeReference(name='Medium'))
     db.session.add(SizeReference(name='Small'))
