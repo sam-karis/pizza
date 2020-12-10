@@ -36,7 +36,6 @@ class UserRequest(BaseModel, db.Model):
     def price(self):
         pizza_price = self.pizza.price
         topping_price = [topping.price for topping in self.toppings]
-        print(pizza_price + sum(topping_price), topping_price)
         return pizza_price + sum(topping_price)
 
     @property
