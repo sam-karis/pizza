@@ -1,5 +1,9 @@
 # Documentation of pizza
 
+To test the hosted API, visit the following urls  
+[index](https://pizza-order-assessment.herokuapp.com/api)  
+[make order](https://pizza-order-assessment.herokuapp.com/api/make-order)
+
 #### To set up the environment (Python3)
 
 - Check that python 3 is installed:
